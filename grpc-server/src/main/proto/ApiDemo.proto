@@ -1,0 +1,37 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package ru.vood.grpc.demo.api.v1;
+
+import "google/protobuf/empty.proto";
+
+enum Type1 {
+  OK = 0;
+  ERROR1 = 1;
+  ERROR2 = 3 [deprecated = true];
+}
+
+message SomeDataRq {
+  string reqId = 1;
+  int32 status = 2;
+  //  google.protobuf.Timestamp time = 3;
+  Type1 type = 4;
+
+  map<string, string> map = 20;
+  repeated string someList = 21;
+
+  reserved 50 to 70;
+}
+
+message SomeDataRs {
+  string reqId = 1;
+}
+
+service SomeService {
+
+  rpc reqWithEmpty(SomeDataRq) returns (google.protobuf.Empty);
+
+  rpc reqWithOne(SomeDataRq) returns (SomeDataRs);
+
+  rpc reqWithStream(SomeDataRq) returns (SomeDataRs);
+
+}
