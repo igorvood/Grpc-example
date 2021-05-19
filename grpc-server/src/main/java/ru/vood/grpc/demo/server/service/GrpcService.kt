@@ -1,4 +1,4 @@
-package ru.vood.grpc.demo.api.service
+package ru.vood.grpc.demo.server.service
 
 import com.google.protobuf.Empty
 import io.grpc.stub.StreamObserver
