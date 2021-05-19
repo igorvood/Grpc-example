@@ -30,6 +30,12 @@
         </dependency>
 
         <dependency>
+            <groupId>ru.vood.grpc</groupId>
+            <artifactId>grpc-server</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
             <groupId>net.devh</groupId>
             <artifactId>grpc-client-spring-boot-starter</artifactId>
             <version>${net.devh.version}</version>

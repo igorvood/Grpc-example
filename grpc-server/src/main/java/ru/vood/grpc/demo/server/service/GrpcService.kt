@@ -18,7 +18,6 @@ class GrpcService : SomeServiceGrpc.SomeServiceImplBase() {
 
         responseObserver.onNext(Empty.newBuilder().build())
         responseObserver.onCompleted()
-
     }
 
     override fun reqWithOne(request: SomeDataRq, responseObserver: StreamObserver<SomeDataRs>) {
