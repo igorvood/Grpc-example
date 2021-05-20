@@ -1,13 +1,13 @@
-package ru.vood.grpc.demo.server;
+package ru.vood.grpc.demo.client;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoServerApplication {
+public class DemoClientApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DemoServerApplication.class, args);
+        SpringApplication.run(DemoClientApplication.class, args);
     }
 
 }
