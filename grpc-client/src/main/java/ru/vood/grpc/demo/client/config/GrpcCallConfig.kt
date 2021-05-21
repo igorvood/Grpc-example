@@ -10,7 +10,6 @@ open class GrpcCallConfig {
 
     @Bean
     @GrpcClient("srv")
-    open fun someServiceBlockingStub(someServiceBlockingStub: SomeServiceBlockingStub): SomeServiceBlockingStub {
-        return someServiceBlockingStub
-    }
+    open fun someServiceBlockingStub(someServiceBlockingStub: SomeServiceBlockingStub): SomeServiceBlockingStub = someServiceBlockingStub
+
 }
