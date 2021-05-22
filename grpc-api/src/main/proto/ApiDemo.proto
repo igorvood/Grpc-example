@@ -39,4 +39,6 @@ service SomeService {
 
   rpc reqWithNotCatchedError(SomeDataRq) returns (google.protobuf.Empty);
 
+  rpc reqWithNoReturn(SomeDataRq) returns (google.protobuf.Empty);
+
 }

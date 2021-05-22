@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service
 import ru.vood.grpc.demo.api.v1.SomeServiceGrpc
 import ru.vood.grpc.demo.client.service.util.genSomeDataRq
 
-//@Service
-//@Order(30)
+@Service
+@Order(30)
 class RunWithStream(val someGrpcService: SomeServiceGrpc.SomeServiceBlockingStub) : RunInterface {
 
     val logger = LoggerFactory.getLogger(RunWithStream::class.java)

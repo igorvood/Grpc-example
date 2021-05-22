@@ -13,8 +13,4 @@ open class GrpcCallConfig {
     @GrpcClient("srv")
     open fun someServiceBlockingStub(someServiceBlockingStub: SomeServiceBlockingStub): SomeServiceBlockingStub = someServiceBlockingStub
 
-//    @Bean
-//    @GrpcClient("srv")
-//    open fun someServiceFutureStub(someServiceFutureStub: SomeServiceGrpc.SomeServiceImplBase): SomeServiceGrpc.SomeServiceImplBase = someServiceFutureStub
-
 }

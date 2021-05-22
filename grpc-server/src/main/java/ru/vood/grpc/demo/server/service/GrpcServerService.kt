@@ -49,4 +49,8 @@ class GrpcServerService : SomeServiceGrpc.SomeServiceImplBase() {
     override fun reqWithNotCatchedError(request: SomeDataRq, responseObserver: StreamObserver<Empty>) {
         throw IllegalStateException("error for reqId ${request.reqId}")
     }
+
+    override fun reqWithNoReturn(request: SomeDataRq, responseObserver: StreamObserver<Empty>) {
+        logger.info("reqWithNoReturn Input request repeat for \n $request")
+    }
 }
