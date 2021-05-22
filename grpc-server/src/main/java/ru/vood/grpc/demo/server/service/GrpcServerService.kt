@@ -8,8 +8,6 @@ import ru.vood.grpc.demo.api.v1.SomeDataRq
 import ru.vood.grpc.demo.api.v1.SomeDataRs
 import ru.vood.grpc.demo.api.v1.SomeServiceGrpc
 import ru.vood.grpc.demo.server.service.util.genSomeDataRs
-import java.lang.IllegalStateException
-import kotlin.random.Random
 
 @GrpcService
 class GrpcServerService : SomeServiceGrpc.SomeServiceImplBase() {
@@ -46,5 +44,9 @@ class GrpcServerService : SomeServiceGrpc.SomeServiceImplBase() {
     override fun reqWithError(request: SomeDataRq, responseObserver: StreamObserver<Empty>) {
         logger.info("reqWithError Input request repeat for \n $request")
         responseObserver.onError(IllegalStateException("Error on the server side"))
+    }
+
+    override fun reqWithNotCatchedError(request: SomeDataRq, responseObserver: StreamObserver<Empty>) {
+        throw IllegalStateException("error for reqId ${request.reqId}")
     }
 }

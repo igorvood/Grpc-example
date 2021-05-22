@@ -31,10 +31,12 @@ service SomeService {
 
   rpc reqWithEmpty(SomeDataRq) returns (google.protobuf.Empty);
 
-  rpc reqWithError(SomeDataRq) returns (google.protobuf.Empty);
-
   rpc reqWithOne(SomeDataRq) returns (SomeDataRs);
 
   rpc reqWithStream(SomeDataRq) returns (stream SomeDataRs);
+
+  rpc reqWithError(SomeDataRq) returns (google.protobuf.Empty);
+
+  rpc reqWithNotCatchedError(SomeDataRq) returns (google.protobuf.Empty);
 
 }

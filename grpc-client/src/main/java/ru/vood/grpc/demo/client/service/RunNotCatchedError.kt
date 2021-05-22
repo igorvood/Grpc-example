@@ -8,15 +8,15 @@ import ru.vood.grpc.demo.api.v1.SomeServiceGrpc
 import ru.vood.grpc.demo.client.service.util.genSomeDataRq
 
 @Service
-@Order(40)
-class RunError(val someGrpcService: SomeServiceGrpc.SomeServiceBlockingStub) : RunInterface {
+@Order(50)
+class RunNotCatchedError(val someGrpcService: SomeServiceGrpc.SomeServiceBlockingStub) : RunInterface {
 
-    val logger = LoggerFactory.getLogger(RunError::class.java)
+    val logger = LoggerFactory.getLogger(RunNotCatchedError::class.java)
 
     override fun run() {
         logger.info("run")
         try {
-            val reqWithEmpty = someGrpcService.reqWithError(genSomeDataRq().invoke(RunError::class.java.toString()))
+            val reqWithEmpty = someGrpcService.reqWithNotCatchedError(genSomeDataRq().invoke(RunNotCatchedError::class.java.toString()))
             error("Error Must here")
         } catch (t: StatusRuntimeException) {
 
