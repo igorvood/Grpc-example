@@ -10,9 +10,9 @@ class GlobalGrpcExceptionHandler : ServerInterceptor {
     val logger = LoggerFactory.getLogger(GlobalGrpcExceptionHandler::class.java)
 
     override fun <ReqT : Any?, RespT : Any?> interceptCall(call: ServerCall<ReqT, RespT>, reqHeders: Metadata, next: ServerCallHandler<ReqT, RespT>): ServerCall.Listener<ReqT> {
-        logger.info("""Calling ${call.methodDescriptor.fullMethodName} 
-                    |parameters ${call.attributes}
-                    |reqHeders ${reqHeders}"""
+        logger.info("""Calling => ${call.methodDescriptor.fullMethodName} 
+                    |parameters => ${call.attributes}
+                    |reqHeders => ${reqHeders}"""
                 .trimMargin()
         )
         val delegate = next.startCall(call, reqHeders)
