@@ -7,14 +7,14 @@ import ru.vood.grpc.demo.api.v1.SomeServiceGrpc
 import ru.vood.grpc.demo.client.service.util.genSomeDataRq
 
 @Service
-@Order(20)
-class RunOne(val someGrpcService: SomeServiceGrpc.SomeServiceBlockingStub) : RunInterface {
+@Order(10)
+class RunEmpty(val someGrpcService: SomeServiceGrpc.SomeServiceBlockingStub) : RunInterface {
 
-    val logger = LoggerFactory.getLogger(RunOne::class.java)
+    val logger = LoggerFactory.getLogger(RunEmpty::class.java)
 
     override fun run() {
         logger.info("run")
-        val reqWithEmpty = someGrpcService.reqWithOne(genSomeDataRq().invoke(RunOne::class.java.toString()))
-        logger.info("reqWithOne \n $reqWithEmpty")
+        val reqWithEmpty = someGrpcService.reqWithEmpty(genSomeDataRq().invoke(RunEmpty::class.java.toString()))
+        logger.info("reqWithEmpty \n $reqWithEmpty")
     }
 }

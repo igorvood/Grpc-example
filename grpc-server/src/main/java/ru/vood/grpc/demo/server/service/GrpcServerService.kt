@@ -8,6 +8,7 @@ import ru.vood.grpc.demo.api.v1.SomeDataRq
 import ru.vood.grpc.demo.api.v1.SomeDataRs
 import ru.vood.grpc.demo.api.v1.SomeServiceGrpc
 import ru.vood.grpc.demo.server.service.util.genRndString
+import ru.vood.grpc.demo.server.service.util.genSomeDataRs
 
 @GrpcService
 class GrpcServerService : SomeServiceGrpc.SomeServiceImplBase() {
@@ -15,24 +16,27 @@ class GrpcServerService : SomeServiceGrpc.SomeServiceImplBase() {
     val logger = LoggerFactory.getLogger(GrpcServerService::class.java)
 
     override fun reqWithEmpty(request: SomeDataRq, responseObserver: StreamObserver<Empty>) {
-        logger.info("reqWithEmpty Input request $request")
+        logger.info("reqWithEmpty Input request \n $request")
 
         responseObserver.onNext(Empty.newBuilder().build())
         responseObserver.onCompleted()
     }
 
     override fun reqWithOne(request: SomeDataRq, responseObserver: StreamObserver<SomeDataRs>) {
-        val randomString = genRndString().invoke(10)
-
-        logger.info("reqWithOne Input request $request")
-        responseObserver.onNext(SomeDataRs.newBuilder().setReqId(randomString).build())
+        logger.info("reqWithOne Input request \n $request")
+        responseObserver.onNext(genSomeDataRs(19))
+        responseObserver.onCompleted()
     }
 
     override fun reqWithStream(request: SomeDataRq, responseObserver: StreamObserver<SomeDataRs>) {
-        logger.info("reqWithStream Input request $request")
-        responseObserver.onNext(SomeDataRs.newBuilder().build())
-        responseObserver.onNext(SomeDataRs.newBuilder().build())
-        responseObserver.onNext(SomeDataRs.newBuilder().build())
+        logger.info("reqWithStream Input request \n $request")
+        IntRange(1,3).forEach {
+            logger.info("before send $it")
+            responseObserver.onNext(genSomeDataRs(19))
+            logger.info("after send $it")
+        }
         responseObserver.onCompleted()
+        logger.info("Complit send")
     }
+
 }

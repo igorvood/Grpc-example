@@ -5,7 +5,7 @@ import ru.vood.grpc.demo.api.v1.SomeDataRq
 import ru.vood.grpc.demo.api.v1.Type1
 import kotlin.random.Random
 
-
+//специально так применил, знаю можно проще
 fun genSomeDataRq(): (String) -> SomeDataRq = {
     SomeDataRq.newBuilder()
             .setReqId(it)

@@ -33,6 +33,6 @@ service SomeService {
 
   rpc reqWithOne(SomeDataRq) returns (SomeDataRs);
 
-  rpc reqWithStream(SomeDataRq) returns (SomeDataRs);
+  rpc reqWithStream(SomeDataRq) returns (stream SomeDataRs);
 
 }
