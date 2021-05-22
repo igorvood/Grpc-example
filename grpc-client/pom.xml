@@ -31,8 +31,7 @@
 
         <dependency>
             <groupId>ru.vood.grpc</groupId>
-            <artifactId>grpc-server</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <artifactId>grpc-api</artifactId>
         </dependency>
 
         <dependency>

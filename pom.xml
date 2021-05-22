@@ -34,6 +34,24 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>ru.vood.grpc</groupId>
+                <artifactId>grpc-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ru.vood.grpc</groupId>
+                <artifactId>grpc-server</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ru.vood.grpc</groupId>
+                <artifactId>grpc-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>net.devh</groupId>
                 <artifactId>grpc-server-spring-boot-starter</artifactId>
                 <version>${net.devh.version}</version>
