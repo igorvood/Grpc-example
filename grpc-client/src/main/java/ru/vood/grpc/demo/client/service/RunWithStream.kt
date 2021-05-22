@@ -15,10 +15,11 @@ class RunWithStream(val someGrpcService: SomeServiceGrpc.SomeServiceBlockingStub
     override fun run() {
         logger.info("run")
         val reqWithEmpty = someGrpcService.reqWithStream(genSomeDataRq().invoke(RunWithStream::class.java.toString()))
+        logger.info("response fro server")
         var i = 0
-        while (reqWithEmpty.hasNext() ){
+        while (reqWithEmpty.hasNext()) {
             logger.info("reqWithStream \n ${reqWithEmpty.next()}")
-            Thread.sleep(1000L)
+//            Thread.sleep(10L)
             i++
         }
         logger.info("end run. Total Count $i")
