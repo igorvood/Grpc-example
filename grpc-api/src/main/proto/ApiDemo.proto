@@ -17,7 +17,7 @@ message SomeDataRq {
   google.protobuf.Timestamp time = 3;
   Type1 type = 4;
 
-  map<string, string> map = 20;
+  map<string, string> indexMap = 20;
   repeated string someList = 21;
 
   reserved 50 to 70;
