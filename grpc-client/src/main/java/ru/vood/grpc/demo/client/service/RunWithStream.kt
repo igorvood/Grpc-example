@@ -19,7 +19,6 @@ class RunWithStream(val someGrpcService: SomeServiceGrpc.SomeServiceBlockingStub
         var i = 0
         while (reqWithEmpty.hasNext()) {
             logger.info("reqWithStream \n ${reqWithEmpty.next()}")
-//            Thread.sleep(10L)
             i++
         }
         logger.info("end run. Total Count $i")

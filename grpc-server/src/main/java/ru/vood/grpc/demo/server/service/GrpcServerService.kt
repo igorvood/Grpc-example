@@ -8,6 +8,7 @@ import ru.vood.grpc.demo.api.v1.SomeDataRq
 import ru.vood.grpc.demo.api.v1.SomeDataRs
 import ru.vood.grpc.demo.api.v1.SomeServiceGrpc
 import ru.vood.grpc.demo.server.service.util.genSomeDataRs
+import kotlin.random.Random
 
 @GrpcService
 class GrpcServerService : SomeServiceGrpc.SomeServiceImplBase() {
@@ -28,8 +29,10 @@ class GrpcServerService : SomeServiceGrpc.SomeServiceImplBase() {
     }
 
     override fun reqWithStream(request: SomeDataRq, responseObserver: StreamObserver<SomeDataRs>) {
-        logger.info("reqWithStream Input request \n $request")
-        IntRange(1, 3).forEach {
+        val endInclusive = (5 until 10).random()
+        logger.info("reqWithStream Input request repeat $endInclusive for \n $request")
+
+        IntRange(1, endInclusive).forEach {
             logger.info("before send $it")
             if (it % 2 == 0) Thread.sleep(5000L)
             responseObserver.onNext(genSomeDataRs(19))
