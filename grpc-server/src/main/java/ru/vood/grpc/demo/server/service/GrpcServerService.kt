@@ -35,7 +35,7 @@ class GrpcServerService : SomeServiceGrpc.SomeServiceImplBase() {
 
         IntRange(1, endInclusive).forEach {
             logger.info("before send $it")
-            if (it % 2 == 0) Thread.sleep(5000L)
+            if (it % 2 == 0) Thread.sleep(10000L)
             responseObserver.onNext(genSomeDataRs(19))
             logger.info("after send $it")
         }
