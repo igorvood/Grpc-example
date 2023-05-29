@@ -2,7 +2,7 @@ server:
   port: 9080
 grpc:
   server:
-    port: 50051
+    port: 50061
     reflection-service-enabled: true
     max-inbound-message-size: 1GB
     keep-alive-timeout: 30

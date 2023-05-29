@@ -9,6 +9,7 @@
         <module>grpc-client</module>
         <module>grpc-api</module>
         <module>grpc-server-async</module>
+        <module>grpc-client-async</module>
     </modules>
 
     <parent>

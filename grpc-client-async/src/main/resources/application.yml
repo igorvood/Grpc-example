@@ -1,0 +1,11 @@
+server:
+  port: 9091
+grpc:
+  client:
+    srv:
+      address: 'static://localhost:50061'
+      negotiationtype: plaintext
+      max-inbound-message-size: 1GB
+      enable-keep-alive: true
+      keep-alive-time: 30s
+      keep-alive-timeout: 30s
