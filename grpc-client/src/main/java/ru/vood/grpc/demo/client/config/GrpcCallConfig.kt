@@ -9,8 +9,14 @@ import ru.vood.grpc.demo.api.v1.SomeServiceGrpc.SomeServiceBlockingStub
 @Configuration
 open class GrpcCallConfig {
 
-    @Bean
+
     @GrpcClient("srv")
-    open fun someServiceBlockingStub(someServiceBlockingStub: SomeServiceBlockingStub): SomeServiceBlockingStub = someServiceBlockingStub
+    lateinit var someServiceBlockingStub: SomeServiceBlockingStub
+
+    @Bean
+    open fun someServiceBlockingStub(): SomeServiceBlockingStub = someServiceBlockingStub
+//    @Bean
+//    @GrpcClient("srv")
+//    open fun someServiceBlockingStub(someServiceBlockingStub: SomeServiceBlockingStub): SomeServiceBlockingStub = someServiceBlockingStub
 
 }

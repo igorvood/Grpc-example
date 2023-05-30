@@ -5,7 +5,7 @@ import io.grpc.ForwardingServerCallListener.SimpleForwardingServerCallListener
 import net.devh.boot.grpc.server.interceptor.GrpcGlobalServerInterceptor
 import org.slf4j.LoggerFactory
 
-@GrpcGlobalServerInterceptor
+//@GrpcGlobalServerInterceptor
 class GlobalGrpcExceptionHandler : ServerInterceptor {
     val logger = LoggerFactory.getLogger(GlobalGrpcExceptionHandler::class.java)
 

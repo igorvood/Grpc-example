@@ -8,13 +8,38 @@ import org.slf4j.LoggerFactory
 import ru.vood.grpc.demo.api.v1.SomeDataRq
 import ru.vood.grpc.demo.api.v1.SomeDataRs
 import ru.vood.grpc.demo.api.v1.SomeServiceImplBase
+import java.util.concurrent.atomic.AtomicInteger
 
 @GrpcService
 class GrpcAsyncServerService : SomeServiceImplBase(){
 
+
+    val cnt =  AtomicInteger(0)
+
+    val start =  java.util.Date().time
+
+
+    val logEveryReqests = 100
+
     val logger = LoggerFactory.getLogger(GrpcAsyncServerService::class.java)
     override suspend fun reqWithEmpty(request: SomeDataRq): Empty {
-        logger.info("reqWithEmpty Input request \n $request")
+//        logger.info("reqWithEmpty Input request \n $request")
+        delay(10000)
+        val c = cnt.incrementAndGet()
+
+        if (c % logEveryReqests ==0 && c>0){
+            val end = java.util.Date().time
+            val l1 = end - start
+            val l = cnt.toLong()/(l1.toDouble() /1000)
+
+
+            logger.info("-------processed $c requests. sec ${l1.toDouble()/1000}. $l per second")
+        }
+
+
+//        logger.info("processed $c ")
+
+//        logger.info("reqWithOne out request \n $request")
 
         return Empty.newBuilder().build()
     }

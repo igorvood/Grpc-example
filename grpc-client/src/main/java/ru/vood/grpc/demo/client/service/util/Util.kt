@@ -9,7 +9,7 @@ import kotlin.random.Random
 fun genSomeDataRq(): (String) -> SomeDataRq = {
     SomeDataRq.newBuilder()
             .setReqId(it)
-            .setStatus(Random(100).nextInt())
+            .setStatus(Random(1000).nextInt())
             .setTime(Timestamp.getDefaultInstance())
             .setType(Type1.OK)
             .putAllIndexMap(mapOf("q" to "Q"))

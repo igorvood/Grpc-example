@@ -9,5 +9,5 @@ import java.util.concurrent.Executors
 open class PoolConfiguration {
 
     @Bean
-    open fun executorService(): ExecutorService = Executors.newFixedThreadPool(100)
+    open fun executorService(): ExecutorService = Executors.newFixedThreadPool(10000)
 }
